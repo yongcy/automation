@@ -1,0 +1,24 @@
+{
+  "name": "protractor-cucumber4-scaffold",
+  "version": "1.0.0",
+  "description": "protractor + cucumber 4 or above",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "webdriver-manager update",
+    "test": "protractor conf.js"
+  },
+  "keywords": ["cucumber4"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "cucumber": "^4.0.0",
+    "cucumber-html-reporter": "^3.0.4",
+    "cucumber-pretty": "^1.4.0",
+    "fs-extra": "^5.0.0",
+    "moment": "^2.20.1",
+    "protractor": "^5.3.0",
+    "protractor-cucumber-framework": "^4.2.0"
+  }
+}
