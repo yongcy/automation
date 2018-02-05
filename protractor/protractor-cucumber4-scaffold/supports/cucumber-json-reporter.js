@@ -4,7 +4,6 @@ var path = require("path");
 
 class ExJsonFormatter extends JsonFormatter {
     constructor(options) {
-        console.dir(options);
         super(options);
 
         // overwrite the default log function
