@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "pretest": "webdriver-manager update",
-    "test": "protractor conf.js"
+    "test-use-plugin": "protractor conf-use-plugin.js",
+    "test-unuse-plugin": "protractor conf-unuse-plugin.js"
   },
   "keywords": ["cucumber4"],
   "author": "",

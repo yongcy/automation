@@ -37,16 +37,19 @@ exports.config = {
     },
 
     plugins: [
+        // plugin to backup report of last runing
+        // and create report folder for new runing
         {
-            path: "supports/create-report-folder.js",
+            path: "plugins/create-report-folder.js",
             options: {
-                reportDir: "reports/report/cucumber"
+                reportDir: "reports/report",
+                jsonFile: "reports/report/cucumber/cucumber-report.json"
             }
         },
 
         // plugin to generate cucumber html report
         {
-            path: "supports/cucumber-html-reporter.js",
+            path: "plugins/cucumber-html-reporter.js",
             options: {
                 jsonFile: "reports/report/cucumber/cucumber-report.json",
                 htmlFile: "reports/report/cucumber/cucumber-report.html"

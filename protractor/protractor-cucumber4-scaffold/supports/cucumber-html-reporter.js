@@ -1,14 +1,10 @@
 var reporter = require("cucumber-html-reporter");
 
-module.exports = {
-    postResults: function() {
-        var options = {
-            theme: "bootstrap",
-            jsonFile: this.config.options.jsonFile,
-            output: this.config.options.htmlFile,
-            reportSuiteAsScenarios: true
-        };
-
-        reporter.generate(options);
-    }
+var options = {
+    theme: "bootstrap",
+    jsonFile: "reports/report/cucumber/cucumber-report.json",
+    output: "reports/report/cucumber/cucumber-report.html",
+    reportSuiteAsScenarios: true
 };
+
+reporter.generate(options);
