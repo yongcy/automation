@@ -94,9 +94,36 @@ module.exports = {
         reporter.generate(options);
     }
 };
-// This interface called after the test results have been finalized and any jobs have been updated (if applicable).
-
+// This interface called after the test results have been finalized and
+// any jobs have been updated (if applicable).
 ```
+* config plugin in protractor conf file
+```javascript
+   plugins: [
+        // plugin to backup report of last runing
+        // and create report folder for new runing
+        {
+            path: "plugins/create-report-folder.js",
+            options: {
+                reportDir: "reports/report",
+                jsonFile: "reports/report/cucumber/cucumber-report.json"
+            }
+        },
+
+        // plugin to generate cucumber html report
+        {
+            path: "plugins/cucumber-html-reporter.js",
+            options: {
+                jsonFile: "reports/report/cucumber/cucumber-report.json",
+                htmlFile: "reports/report/cucumber/cucumber-report.html"
+            }
+        }
+    ]
+```
+[Protractor plugin guide](http://www.protractortest.org/#/plugins)
+
+[Protractor plugin interface](https://github.com/angular/protractor/blob/5.3.0/lib/plugins.ts)
+
 
 **Option 2 - not use protractor plugin**
 * define a new class and extends build-in `JsonFormater` and overwrite the `log` function to generate Json report sync.
@@ -147,6 +174,7 @@ fse.mkdirsSync(reportDir);
         // generate cucumber html report
         require("./supports/cucumber-html-reporter.js");
     }
+
 // supports/cucumber-html-reporter.js
 var reporter = require("cucumber-html-reporter");
 
