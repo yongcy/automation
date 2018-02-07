@@ -1,5 +1,7 @@
 var chai = require("chai");
 var chaiAsPromised = require("chai-as-promised");
+var moment = require("moment");
+var reportDir = (global.reportDir = "reports/report_" + moment().format("YYYYMMDD_HHmmss"));
 chai.use(chaiAsPromised);
 
 exports.config = {
@@ -33,7 +35,7 @@ exports.config = {
 
     onPrepare: function() {
         // perpare report folder
-        require("./supports/create-report-folder.js");
+        require("./supports/create-report-folder.js").create(reportDir);
 
         global.expect = chai.expect;
 
@@ -42,6 +44,6 @@ exports.config = {
 
     onComplete: function() {
         // generate cucumber html report
-        require("./supports/cucumber-html-reporter.js");
+        require("./supports/cucumber-html-reporter.js").generate(reportDir);
     }
 };

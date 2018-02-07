@@ -1,5 +1,7 @@
 var chai = require("chai");
 var chaiAsPromised = require("chai-as-promised");
+var moment = require("moment");
+var reportDir = "reports/report_" + moment().format("YYYYMMDD_HHmmss");
 chai.use(chaiAsPromised);
 
 exports.config = {
@@ -25,7 +27,7 @@ exports.config = {
 
         require: ["supports/timeout.js", "supports/cucumber-screenshot.js", "steps/**/*step.js"],
 
-        format: ["json:reports/report/cucumber/cucumber-report.json", "node_modules/cucumber-pretty"],
+        format: ["json:" + reportDir + "/cucumber/cucumber-report.json", "node_modules/cucumber-pretty"],
 
         tags: ""
     },
@@ -42,8 +44,7 @@ exports.config = {
         {
             path: "plugins/create-report-folder.js",
             options: {
-                reportDir: "reports/report",
-                jsonFile: "reports/report/cucumber/cucumber-report.json"
+                reportDir: reportDir
             }
         },
 
@@ -51,8 +52,8 @@ exports.config = {
         {
             path: "plugins/cucumber-html-reporter.js",
             options: {
-                jsonFile: "reports/report/cucumber/cucumber-report.json",
-                htmlFile: "reports/report/cucumber/cucumber-report.html"
+                jsonFile: reportDir + "/cucumber/cucumber-report.json",
+                htmlFile: reportDir + "/cucumber/cucumber-report.html"
             }
         }
     ]
