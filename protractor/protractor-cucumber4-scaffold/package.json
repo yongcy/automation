@@ -8,7 +8,9 @@
     "test-use-plugin": "protractor conf-use-plugin.js",
     "test-unuse-plugin": "protractor conf-unuse-plugin.js"
   },
-  "keywords": ["cucumber4"],
+  "keywords": [
+    "cucumber4"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {

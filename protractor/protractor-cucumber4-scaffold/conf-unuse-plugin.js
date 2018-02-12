@@ -13,6 +13,8 @@ exports.config = {
         browserName: "chrome",
         enableVNC: true,
         chromeOptions: {
+            useAutomationExtension: false,
+            // forceDevToolsScreenshot: true,
             args: ["--start-maximized", "--disable-gpu"]
         }
     },
@@ -40,6 +42,10 @@ exports.config = {
         global.expect = chai.expect;
 
         browser.ignoreSynchronization = true;
+
+        // browser.manage().window().setSize(600, 800);
+        // browser.sleep(5000);
+        // browser.manage().window().maximize();
     },
 
     onComplete: function() {
