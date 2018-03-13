@@ -4,7 +4,7 @@ var _ = require("lodash");
 var featureParser = require('cucumber/lib/cli/feature_parser').default.parse;
 var ScenarioFilter = require('cucumber/lib/scenario_filter').default;
 
-var filter_by_tag = module.exports = function(config, params) {
+var filter_by_tag = module.exports = function(config) {
 
     let tagExpression = config.cucumberOpts.tags;
     let priorities = config.cucumberOpts.priorities;
@@ -15,13 +15,6 @@ var filter_by_tag = module.exports = function(config, params) {
     let scenarioFilter = new ScenarioFilter(scenarioFilterOptions);
 
     let specs = config.specs;
-    if (params.suite && config.suites) {
-        if (config.suites.hasOwnProperty(params.suite)) {
-            specs = config.suites[params.suite] || specs;
-        } else {
-            throw new Error('Unknown test suite: ' + params.suite);
-        }
-    }
 
     let features = {};
 
